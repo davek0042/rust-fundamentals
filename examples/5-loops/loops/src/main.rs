@@ -4,12 +4,25 @@
 
 fn main() {
     let mut x = 1;
-    // continue looping until x > 5
+    
+    // Using loop
     loop {
-        println!("x is {}", x);
+        println!("loop: x is {}", x);
         x += 1;
         if x > 5 {
             break;
         }
+    }
+    
+    // Using while
+    x = 1; // reset x
+    while x <= 5 {
+        println!("while: x is {}", x);
+        x += 1;
+    }
+    
+    // Using for
+    for x in 1..=5 {
+        println!("for: x is {}", x);
     }
 }
