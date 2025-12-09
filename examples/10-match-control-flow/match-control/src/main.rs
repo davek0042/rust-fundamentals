@@ -1,11 +1,13 @@
-use std::io;
+use std::io::{self, Write};
 
 fn main() {
-    println!("Please enter a greeting: ");
+    print!("Please enter a greeting: ");
+    io::stdout().flush().unwrap();
     let mut name = String::new();
     io::stdin().read_line(&mut name).expect("Failed to read input");
 
-    println!("Please enter your name: ");
+    print!("Please enter your name: ");
+    io::stdout().flush().unwrap();
     let mut fname = String::new();
     io::stdin().read_line(&mut fname).expect("Failed to read input");
 
