@@ -13,9 +13,9 @@ fn main() {
 
     println!();
     // use of match expression to pattern match against variable "name"
-    match name.trim() {
-        "Good Bye" => println!("Sorry to see you go."),
-        "Hello" => println!("Hi, nice to meet you, {}!", fname.trim()),
+    match name.trim().to_lowercase().as_str() {
+        "good bye" => println!("Sorry to see you go."),
+        "hello" => println!("Hi, nice to meet you, {}!", fname.trim()),
         _ => println!("I can't find a greeting, good bye."),
     }
 }
