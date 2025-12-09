@@ -1,14 +1,19 @@
 use std::io;
 
 fn main() {
-    println!("Please enter a greeting:");
+    println!("Please enter a greeting: ");
     let mut name = String::new();
     io::stdin().read_line(&mut name).expect("Failed to read input");
 
+    println!("Please enter your name: ");
+    let mut fname = String::new();
+    io::stdin().read_line(&mut fname).expect("Failed to read input");
+
+    println!();
     // use of match expression to pattern match against variable "name"
     match name.trim() {
         "Good Bye" => println!("Sorry to see you go."),
-        "Hello" => println!("Hi, nice to meet you!"),
+        "Hello" => println!("Hi, nice to meet you, {}!", fname.trim()),
         _ => println!("I can't find a greeting, good bye."),
     }
 }
