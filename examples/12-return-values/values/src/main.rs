@@ -1,9 +1,20 @@
 
 fn split_string(s: String, delimiter: char, field: usize) -> String {
     let parts: Vec<&str> = s.split(delimiter).collect();
-    // This will not compile!
+    
+    /*
+    This is the AI fix.  It addresses the potential out-of-bounds
+    access by using unwrap_or to provide a default value of an empty
+    string when the index is out of bounds.
+     */
+    // let result = parts.get(field);
+    // result.unwrap_or(&"").to_string()
+
+    /* 
+    this is the class solution 
+    */
     let result = parts.get(field);
-    result.to_string()
+    result.expect("Field index out of bounds").to_string()
 }
 
 fn main() {
