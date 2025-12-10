@@ -7,7 +7,15 @@ fn own_integer(x: i32) {
     x + 1;
 }
 
+// This function takes ownership of a String
+// note the lack of the & before String
 fn own_string(s: String) {
+    println!("{}", s);
+}
+
+// This function borrows a string reference instead of taking ownership
+// take note of the & before String
+fn own_string_borrowing(s: &String) {
     println!("{}", s);
 }
 
@@ -24,9 +32,12 @@ fn main() {
     own_integer(my_int);
     println!("{}", my_int);
 
-    own_string(my_string); // take ownership of my_string
-    // this is using my_string which has also moved and is invalid
-    //println!("{:?}", my_string); // this will not compile!
+    // own_string(my_string); // take ownership of my_string
+    // // this is using my_string which has also moved and is invalid
+    // //println!("{:?}", my_string); // this will not compile!
+
+    own_string_borrowing(&my_string);
+    println!("{:?}", my_string); // this is valid because we only borrowed my_string
 
     own_vec(my_vec);
     // but this is using my_vec which was borrowed (moved) and yet is now invalid
